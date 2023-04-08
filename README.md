@@ -2,8 +2,6 @@
     <img width="134" src="https://webstockreview.net/images/comet-clipart-meteorite-4.png">
 </div>
 
-# Not tested! Will arround March 15.
-
 # Description
 
 This library contain base hooks. Created for fast developing vk-mini-apps. I recomend use it with @blumjs/cli.
@@ -19,7 +17,7 @@ import {
     useIntersectionObserver,
     useInterval,
     useTimeout
-} from '@blumjs/router';
+} from '@blumjs/hooks';
 
 const UserAvatarComponent = ({id, name, photo}) => {
   // for make console.log with updated values, by default prefix is "[blum:log]: "
