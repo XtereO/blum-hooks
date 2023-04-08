@@ -1,4 +1,11 @@
-import { LegacyRef, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  LegacyRef,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 
 interface Args extends IntersectionObserverInit {
   freezeOnceVisible?: boolean;
@@ -7,17 +14,26 @@ interface Args extends IntersectionObserverInit {
 export const useIntersectionObserver = ({
   threshold = 0,
   root = null,
-  rootMargin = '0%',
+  rootMargin = "0%",
   freezeOnceVisible = false,
-}: Args): { ref: LegacyRef<any>; entry: IntersectionObserverEntry | undefined } => {
+}: Args): {
+  ref: LegacyRef<any>;
+  entry: IntersectionObserverEntry | undefined;
+} => {
   const elementRef = useRef<Element>();
   const [entry, setEntry] = useState<IntersectionObserverEntry>();
 
-  const frozen = useMemo(() => entry?.isIntersecting && freezeOnceVisible, [entry?.isIntersecting, freezeOnceVisible]);
+  const frozen = useMemo(
+    () => entry?.isIntersecting && freezeOnceVisible,
+    [entry?.isIntersecting, freezeOnceVisible]
+  );
 
-  const updateEntry = useCallback(([entry]: IntersectionObserverEntry[]): void => {
-    setEntry(entry);
-  }, []);
+  const updateEntry = useCallback(
+    ([entry]: IntersectionObserverEntry[]): void => {
+      setEntry(entry);
+    },
+    []
+  );
 
   useEffect(() => {
     const node = elementRef?.current;
@@ -31,7 +47,13 @@ export const useIntersectionObserver = ({
     observer.observe(node);
 
     return () => observer.disconnect();
-  }, [elementRef?.current, JSON.stringify(threshold), root, rootMargin, frozen]);
+  }, [
+    elementRef?.current,
+    JSON.stringify(threshold),
+    root,
+    rootMargin,
+    frozen,
+  ]);
 
   return { entry, ref: elementRef };
 };

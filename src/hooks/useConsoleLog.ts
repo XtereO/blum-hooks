@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 
-export const useConsoleLog = (messages: unknown[], prefix?: boolean) => {
+export const useConsoleLog = (messages: unknown[], prefix?: string) => {
   useEffect(() => {
     messages.forEach((m) => {
       if (prefix) {
-        console.log(m);
+        console.log(prefix, m);
       } else {
         console.log("[blum:log]: ", m);
       }
     });
-  }, [messages, prefix]);
+  }, [...messages, prefix]);
 };
