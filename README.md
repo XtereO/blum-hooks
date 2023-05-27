@@ -1,10 +1,10 @@
 <div align="center">
-    <img width="134" src="https://webstockreview.net/images/comet-clipart-meteorite-4.png">
+    <img src="https://drive.google.com/uc?export=view&id=14_MxI0TSoz8wK9e-f8BHzworUfehaZz3"/>
 </div>
 
 # Description
 
-This library contain base hooks. Created for fast developing vk-mini-apps. I recomend use it with [@blumjs/cli](https://www.npmjs.com/package/@blumjs/cli).
+This library contains base hooks. Created for fast developing vk-mini-apps. I recomend use it with [@blumjs/cli](https://www.npmjs.com/package/@blumjs/cli).
 
 ## Usage
 
